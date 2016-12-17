@@ -1,5 +1,38 @@
+sudo: false
+
 language: php
+
 php:
 - '5.6'
-- '7.0'
 - '7.1'
+
+matrix:
+  fast_finish: true
+
+install:
+  - export ACQUIA_JOB_START=$(date +%s)
+
+cache:
+  apt: true
+  directories:
+  - "$HOME/.composer/cache"
+  - "$HOME/.drush/cache"
+  - "vendor"
+  - "travis_selenium"
+
+php:
+  - 7.0
+  - 5.6
+
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
+before_install:
+  - source ./scripts/travis/setup-environment.sh
+  - bash -x -e ./scripts/travis/before-install.sh
+  - bash -x -e ./scripts/travis/test-source-code.sh
+
+script:
+  - bash -x -e ./scripts/travis/run-tests.sh
