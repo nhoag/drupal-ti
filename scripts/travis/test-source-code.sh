@@ -12,6 +12,6 @@ source ~/.nvm/nvm.sh
 set +x
 nvm install 4
 npm install -g eslint
-eslint .
+eslint ./docroot/modules/custom
 rm -rf ~/.nvm
 mv ~/.nvm-backup ~/.nvm
