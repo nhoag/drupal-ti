@@ -1,7 +1,7 @@
 # run phpcs
 phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
-phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme --report=summary -p .
-phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme --report=summary -p .
+phpcs --standard=Drupal --extensions=php,module,inc,install,test,profile,theme --report=summary -p ./docroot/modules/custom
+phpcs --standard=DrupalPractice --extensions=php,module,inc,install,test,profile,theme --report=summary -p ./docroot/modules/custom
 
 # JS ESLint checking
 mv ~/.nvm ~/.nvm-backup
