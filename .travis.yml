@@ -34,5 +34,8 @@ before_install:
   - bash -x -e ./scripts/travis/before-install.sh
   - bash -x -e ./scripts/travis/test-source-code.sh
 
+install:
+  - bash -x -e ./scripts/travis/install.sh
+
 script:
   - bash -x -e ./scripts/travis/run-tests.sh
