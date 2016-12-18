@@ -33,6 +33,7 @@ mysql:
   encoding: utf8
 
 before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS drupal;'
   - source ./scripts/travis/setup-environment.sh
   - bash -x -e ./scripts/travis/before-install.sh
   - bash -x -e ./scripts/travis/test-source-code.sh
