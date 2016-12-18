@@ -37,7 +37,7 @@ before_install:
   - source ./scripts/travis/setup-environment.sh
   - bash -x -e ./scripts/travis/before-install.sh
   - bash -x -e ./scripts/travis/test-source-code.sh
-  - drush --yes --verbose --debug site-install standard --db-url="mysql://root@127.0.0.1/drupal"
+  - drush --yes --verbose --debug --root=docroot site-install standard --db-url="mysql://root@127.0.0.1/drupal"
   - drush --yes en simpletest
 
 install:
