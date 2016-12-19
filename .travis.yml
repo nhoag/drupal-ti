@@ -23,8 +23,8 @@ cache:
   - "travis_selenium"
 
 php:
-  - 7.0
   - 5.6
+  - 7.1
 
 services:
   - mysql
