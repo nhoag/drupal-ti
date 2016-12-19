@@ -39,4 +39,4 @@ before_install:
   - drush --yes --root=docroot en simpletest
 
 script:
-  - bash -x ./scripts/travis/run-tests.sh
+  - bash -x -e ./scripts/travis/run-tests.sh
