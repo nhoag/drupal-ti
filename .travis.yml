@@ -37,11 +37,11 @@ mysql:
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS drupal;'
   - source ./scripts/travis/setup-environment.sh
-  - bash -x -e ./scripts/travis/before-install.sh
-  - bash -x -e ./scripts/travis/test-source-code.sh
+  - bash -x ./scripts/travis/before-install.sh
+  - bash -x ./scripts/travis/test-source-code.sh
   - drush --yes --verbose --debug --root=docroot site-install standard --db-url="mysql://root@127.0.0.1/drupal"
-  - bash -x -e ./scripts/travis/install.sh
+  - bash -x ./scripts/travis/install.sh
   - drush --yes --root=docroot en simpletest
 
 script:
-  - bash -x -e ./scripts/travis/run-tests.sh
+  - bash -x ./scripts/travis/run-tests.sh
