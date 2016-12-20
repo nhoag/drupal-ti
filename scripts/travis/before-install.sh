@@ -6,8 +6,8 @@ composer self-update
 # remove xdebug to make php execute faster
 phpenv config-rm xdebug.ini
 
-# Install Drush and drupalorg_drush module
-composer global require drush/drush:^8.1 drupal/coder
+# Install Drush, coder and phpmd
+composer global require drush/drush:^8.1 drupal/coder phpmd/phpmd
 phpenv rehash
 
 # Set MySQL Options
