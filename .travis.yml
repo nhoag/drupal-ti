@@ -19,6 +19,10 @@ php:
 services:
   - mysql
 
+env:
+  - TEST_THREAD=source_code
+  - TEST_THREAD=phpunit
+
 mysql:
   database: drupal
   username: root
@@ -28,10 +32,10 @@ before_install:
   - mysql -e 'CREATE DATABASE drupal;'
   - source ./scripts/travis/setup-environment.sh
   - bash -x ./scripts/travis/before-install.sh
-  - bash -x ./scripts/travis/test-source-code.sh
   - drush --yes --verbose --debug --root=docroot site-install standard --db-url="mysql://root@127.0.0.1/drupal"
   - bash -x ./scripts/travis/install.sh
   - drush --yes --root=docroot en simpletest
 
 script:
-  - bash -x -e ./scripts/travis/run-tests.sh
+  - if [[ "$TEST_THREAD" == "source_code" ]]; then bash -x ./scripts/travis/test-source-code.sh; fi
+  - if [[ "$TEST_THREAD" == "phpunit" ]]; then bash -x -e ./scripts/travis/run-tests.sh; fi
